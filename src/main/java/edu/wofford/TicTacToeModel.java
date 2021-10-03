@@ -51,7 +51,9 @@ public class TicTacToeModel {
     public boolean markBoard(int x, int y) {
         if (isValidAtLocation(x, y)) {
             board[x][y] = turn;
-            turn *= -1;
+            if (!isOver()) {
+                turn *= -1;
+            }
             return true;
         }
         return false;
@@ -86,17 +88,37 @@ public class TicTacToeModel {
     }
 
 
-    public boolean isOver() {
-        boolean three_in_a_row = false;
+    public boolean hasWinner() {
+        boolean threeInARow = false;
 
         for (int i=0; i<3; i++) {
-            three_in_a_row = three_in_a_row || (Math.abs(sumCol(i)) == 3);
-            three_in_a_row = three_in_a_row || (Math.abs(sumRow(i)) == 3);          
+            threeInARow = threeInARow || (Math.abs(sumCol(i)) == 3);
+            threeInARow = threeInARow || (Math.abs(sumRow(i)) == 3);          
         }
-        three_in_a_row = three_in_a_row || (Math.abs(sumTopLeftToBottomRightDiagonal()) == 3);
-        three_in_a_row = three_in_a_row || (Math.abs(sumTopRightToBottomLeftDiagonal()) == 3);
+        threeInARow = threeInARow || (Math.abs(sumTopLeftToBottomRightDiagonal()) == 3);
+        threeInARow = threeInARow || (Math.abs(sumTopRightToBottomLeftDiagonal()) == 3);
 
-        return three_in_a_row;
+        return threeInARow;
+    }
+
+
+    public boolean isFull() {
+        boolean isZero = false;
+
+        for (int j=0; j<3; j++){
+            for (int k=0; k<3; k++) {
+                isZero = isZero || (board[j][k] == 0);
+            }
+        }
+
+        return !isZero;
+    }
+
+    public boolean isOver() {
+        boolean threeInARow = hasWinner();
+        boolean isZero = isFull();
+
+        return threeInARow || isZero;
     }
 
 

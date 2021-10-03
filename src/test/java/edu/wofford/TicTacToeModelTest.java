@@ -61,4 +61,16 @@ public class TicTacToeModelTest {
         testBoard.markBoard(0, 2);
         assertTrue(testBoard.isOver());
    }
+
+   
+   @Test
+   public void testToString() {
+        TicTacToeModel testBoard = new TicTacToeModel();
+        testBoard.markBoard(0, 0);
+        testBoard.markBoard(1, 1);
+        testBoard.markBoard(0, 1);
+        testBoard.markBoard(1, 2);
+        testBoard.markBoard(0, 2);
+        assertEquals("X|X|X\n-----\n |O|O\n-----\n | | ", testBoard.toString());
+   }
 }
