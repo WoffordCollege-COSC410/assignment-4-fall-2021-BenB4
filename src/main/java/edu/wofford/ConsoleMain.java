@@ -33,6 +33,7 @@ public class ConsoleMain {
 			
 		}
 
+		System.out.println(game.toString());
 		if (game.hasWinner()) {
 			System.out.println(game.getPlayerTurn() + " wins");
 		} else {
