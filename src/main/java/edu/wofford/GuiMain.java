@@ -104,7 +104,7 @@ public class GuiMain extends JFrame implements ActionListener {
         game = new TicTacToeModel();
         for (int i=0; i<3; i++) {
             for (int j=0; j<3; j++) {
-                gameButtons[i][j] = new JButton("location" + j + i);
+                gameButtons[i][j] = new JButton(" ");
                 gameButtons[i][j].setName("location" + j + i);
                 gameButtons[i][j].addActionListener(this);
                 //gameButtons[i][j].set
