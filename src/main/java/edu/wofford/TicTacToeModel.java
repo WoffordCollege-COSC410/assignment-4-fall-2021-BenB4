@@ -4,8 +4,6 @@ import javax.swing.border.Border;
 
 import org.assertj.swing.dependency.fest_util.ToString;
 
-import java.lang.Math.*;
-
 public class TicTacToeModel {
     // 2d array with values of -1, 0, or 1. "O" -> -1, blank -> 0, "X" -> 1
     private int[][] board;
