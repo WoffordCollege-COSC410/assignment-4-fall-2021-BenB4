@@ -15,7 +15,6 @@ public class ConsoleMain {
 
 		while (!game.isOver()) {
 			System.out.println(game.toString());
-			System.out.print("\nPlayer " + game.getPlayerTurn() + "'s turn\nEnter the row and col: ");
 			input = keyboard.nextLine();
 			
 			if (input.length() == 3 && input.charAt(1) == ' ') {

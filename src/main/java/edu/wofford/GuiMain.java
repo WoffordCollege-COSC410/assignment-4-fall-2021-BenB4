@@ -50,6 +50,7 @@ public class GuiMain extends JFrame implements ActionListener {
             } else if (event.getSource() == gameButtons[1][0]) {
                 game.markBoard(1, 0);
                 updateGameButtons();
+                checkWinner();
             } else if (event.getSource() == gameButtons[1][1]) {
                 game.markBoard(1, 1);
                 updateGameButtons();
@@ -85,7 +86,7 @@ public class GuiMain extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        result = new JLabel("test text");
+        result = new JLabel(" ");
         result.setName("result");
         result.setEnabled(false);
 
@@ -107,7 +108,6 @@ public class GuiMain extends JFrame implements ActionListener {
                 gameButtons[i][j] = new JButton(" ");
                 gameButtons[i][j].setName("location" + j + i);
                 gameButtons[i][j].addActionListener(this);
-                //gameButtons[i][j].set
             }
         }
 

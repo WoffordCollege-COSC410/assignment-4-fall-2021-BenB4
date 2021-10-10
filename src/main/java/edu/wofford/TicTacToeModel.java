@@ -100,7 +100,7 @@ public class TicTacToeModel {
     }
 
 
-    public boolean isFull() {
+    private boolean isFull() {
         boolean isZero = false;
 
         for (int j=0; j<3; j++){
